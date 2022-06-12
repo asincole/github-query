@@ -1,0 +1,15 @@
+.pagination-wrapper {
+  text-align: right;
+}
+
+.results-wrapper {
+  padding: 20px;
+}
+
+@media only screen and (max-width: 575px) {
+  /* For mobile phones: */
+  .pagination-wrapper {
+    text-align: left;
+  }
+}
+

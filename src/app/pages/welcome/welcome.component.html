@@ -1,0 +1,47 @@
+<div nz-row>
+
+  <div nz-col nzSpan="24">
+    <app-search [loading]="isLoading" (userQuery)="setQueryString($event)" [initialValue]="queryObject.query"></app-search>
+  </div>
+
+</div>
+
+<ng-container *ngIf="(queryResult$ | async) as result; else loadingOrError">
+
+  <div class="results-wrapper" nz-row nzJustify="center" [nzGutter]="[16,16]">
+
+    <div nz-col [nzXs]="24" [nzSm]="8">
+      <h2>Total Result Count: {{result.total_count}}</h2>
+    </div>
+
+    <div class="pagination-wrapper" nz-col [nzXs]="24" [nzSm]="16">
+      <nz-pagination [nzPageIndex]="queryObject.page" [nzPageSize]="30"
+                     [nzTotal]="result.total_count"
+                     (nzPageIndexChange)="queryUser($event)"></nz-pagination>
+    </div>
+
+    <div nz-col nzSpan="24">
+      <app-user-list [users]="result.items"></app-user-list>
+    </div>
+
+  </div>
+</ng-container>
+
+<ng-template #loadingOrError>
+  <div *ngIf="queryResultError$ | async as error; else noResults">
+    <div class="results-wrapper" nz-row nzJustify="center" [nzGutter]="[16,16]">
+      <strong nz-col>
+        <p>{{error}}</p>
+      </strong>
+    </div>
+  </div>
+  <ng-template #noResults>
+    <div class="results-wrapper" nz-row nzJustify="center" [nzGutter]="[16,16]">
+      <strong nz-col>
+        <p>Hello, Use the Search Bar above to search for Github Users!!!</p>
+      </strong>
+    </div>
+  </ng-template>
+</ng-template>
+
+
