@@ -64,7 +64,7 @@ export interface IUserRepository {
   stargazers_count: number;
   watchers_count: number;
   forks: number;
-  html_url: number;
+  html_url: string;
 
   [key: string]: unknown;
 }

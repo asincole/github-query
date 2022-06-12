@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { IUser } from '../../interfaces/interfaces';
 
 @Component({
@@ -7,6 +12,10 @@ import { IUser } from '../../interfaces/interfaces';
   styleUrls: ['./user-profile.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserProfileComponent {
+export class UserProfileComponent implements OnInit {
   @Input() user!: IUser;
+
+  constructor() {}
+
+  ngOnInit() {}
 }
