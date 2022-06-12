@@ -1,0 +1,29 @@
+<div nz-row [nzGutter]="[16,16]">
+  <div nz-col class="gutter-row" nzSpan="24">
+    <nz-list nzItemLayout="horizontal">
+      <nz-list-item *ngFor="let item of repos">
+        <nz-list-item-meta>
+          <nz-list-item-meta-title>
+            <a href="{{ item.html_url }}" target="_blank"
+               rel="noopener noreferrer">{{ item['name'] }}</a>
+          </nz-list-item-meta-title>
+          <nz-list-item-meta-description>
+            {{ item['description'] }}
+          </nz-list-item-meta-description>
+        </nz-list-item-meta>
+
+        <ul nz-list-item-actions>
+          <nz-list-item-action>
+            <i nz-icon nzType="star" style="margin-right: 8px;"></i> {{item.stargazers_count}}
+          </nz-list-item-action>
+          <nz-list-item-action>
+            <i nz-icon nzType="eye" style="margin-right: 8px;"></i> {{item.watchers_count}}
+          </nz-list-item-action>
+          <nz-list-item-action>
+            <i nz-icon nzType="fork" style="margin-right: 8px;"></i> {{item.forks}}
+          </nz-list-item-action>
+        </ul>
+      </nz-list-item>
+    </nz-list>
+  </div>
+</div>
