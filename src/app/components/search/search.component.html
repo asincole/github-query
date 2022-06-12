@@ -1,0 +1,16 @@
+<form>
+  <div nz-row nzJustify="start" [nzGutter]="[16,16]">
+    <div class="label-wrapper" nz-col [nzSm]="3" [nzXs]="24">
+      <label for="query">Search:</label>
+    </div>
+    <div nz-col [nzSm]="17" [nzXs]="24">
+      <input id="query" type="text" nz-input placeholder="type github username" [formControl]="query">
+    </div>
+    <div nz-col [nzSm]="4" [nzXs]="24">
+      <button type="submit" nz-button nzType="primary" [nzLoading]="loading" (click)="search($event)"
+              [disabled]="loading || query.invalid">
+        Search
+      </button>
+    </div>
+  </div>
+</form>

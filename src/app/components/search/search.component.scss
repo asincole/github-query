@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 20px;
+}
+
+.label-wrapper {
+  align-items: center;
+  display: flex;
+}
+
+button[disabled]:hover {
+  cursor: not-allowed;
+}

@@ -1,0 +1,38 @@
+<div nz-row [nzGutter]="[16,16]" [nzJustify]="'space-between'">
+  <div nz-col [nzMd]="{ span: 5, offset: 4 }" [nzSm]="{ span: 24, offset: 0 }">
+    <img src="{{user.avatar_url}}" alt="{{user.login}} avatar">
+  </div>
+  <div nz-col [nzMd]="{ span: 15 }" [nzSm]="{ span: 24, offset: 0 }">
+    <h1>
+      {{user.name}}
+    </h1>
+    <p>
+      <a href="{{user.html_url}}" target="_blank" rel="noopener noreferrer">@{{user.login}}</a>
+    </p>
+    <p>Bio: {{user.bio}}</p>
+    <p><i nz-icon nzType="pushpin" nzTheme="outline"></i> {{user.location}}</p>
+    <p><i nz-icon nzType="global" nzTheme="outline"></i>
+      <a href="{{user.blog}}" target="_blank"
+         rel="noopener noreferrer">
+        {{user.blog}}</a>
+    </p>
+    <div nz-row [nzGutter]="[16,16]">
+      <div nz-col [nzXs]="6">
+        <p class="count">{{user.followers ? user.followers : 0}}</p>
+        <p class="label">Followers</p>
+      </div>
+      <div nz-col [nzXs]="6">
+        <p class="count">{{user.following ? user.following : 0}}</p>
+        <p class="label">Following</p>
+      </div>
+      <div nz-col [nzXs]="6">
+        <p class="count">{{user.public_repos ? user.public_repos : 0}}</p>
+        <p class="label">Repos</p>
+      </div>
+      <div nz-col [nzXs]="6">
+        <p class="count">{{user.public_gists ? user.public_gists : 0}} </p>
+        <p class="label">Gists</p>
+      </div>
+    </div>
+  </div>
+</div>
