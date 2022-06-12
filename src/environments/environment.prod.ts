@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+};
+
+export const GITHUB = {
+  baseUrl: 'https://api.github.com/',
 };
