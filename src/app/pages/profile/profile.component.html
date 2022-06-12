@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <ng-container *ngIf="user$ | async as user; else loadingOrError">
+    <app-user-profile [user]="user"></app-user-profile>
+  </ng-container>
+
+  <ng-template #loadingOrError>
+    <div *ngIf="userError$ | async as error; else loading">
+      <div nz-row nzJustify="center" [nzGutter]="[16,16]">
+        <strong nz-col>
+          <p>{{error}}</p>
+        </strong>
+      </div>
+    </div>
+    <ng-template #loading>
+      <nz-skeleton [nzAvatar]="true" [nzParagraph]="{ rows: 4 }" [nzActive]="true"></nz-skeleton>
+    </ng-template>
+  </ng-template>
+
+
+  <ng-container *ngIf="userRepos$ | async as userRepos; else repoLoadingOrError">
+    <app-repo-list [repos]="userRepos"></app-repo-list>
+  </ng-container>
+
+  <ng-template #repoLoadingOrError>
+    <div *ngIf="userReposError$ | async as error; else loading">
+      <div nz-row nzJustify="center" [nzGutter]="[16,16]">
+        <strong nz-col>
+          <p>{{error}}</p>
+        </strong>
+      </div>
+    </div>
+    <ng-template #loading>
+      <nz-skeleton *ngFor="let item of [1,2,3,4]" [nzActive]="true"></nz-skeleton>
+    </ng-template>
+  </ng-template>
+
+</div>
